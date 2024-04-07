@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: avant;
+    font-weight: 400;
+    src: url(../public/fonts/Avant.ttf);
+}
+
+@font-face {
+    font-family: avant;
+    font-weight: 700;
+    src: url(../public/fonts/AvantBold.ttf);
+}
+
+@font-face {
+    font-family: Meatloaf;
+    font-weight: 400;
+    src: url(../public/fonts/Meatloaf1.ttf);
+}
+
+#home::-webkit-scrollbar {
+    width: 0px;
+}
+
+html.lenis {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+@layer components {
+    .cGray {
+        color: #77777c !important;
+    }
+
+    .d10 {
+        @apply bg-red-300/30 !important;
+    }
+    .d20 {
+        @apply bg-blue-300/30 !important;
+    }
+    .d30 {
+        @apply bg-green-300/30 !important;
+    }
+    .d40 {
+        @apply bg-orange-300/30 !important;
+    }
+    .d50 {
+        @apply bg-pink-700/30 !important;
+    }
+    .d60 {
+        @apply bg-purple-300/30 !important;
+    }
+
+    .d6 {
+        @apply bg-purple-300 !important;
+    }
+
+    .d1 {
+        @apply bg-red-300 !important;
+    }
+    .d2 {
+        @apply bg-blue-300 !important;
+    }
+    .d3 {
+        @apply bg-green-300 !important;
+    }
+    .d4 {
+        @apply bg-orange-300 !important;
+    }
+    .d5 {
+        @apply bg-pink-300 !important;
+    }
+}
+#cube {
+    /* scale: 0.3;
+    transform: rotateX(-30deg) rotateY(-30deg); */
+}
+/*! locomotive-scroll v4.1.3 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
+html.has-scroll-smooth {
+    overflow: hidden;
+}
+
+html.has-scroll-dragging {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.has-scroll-smooth body {
+    overflow: hidden;
+}
+
+.has-scroll-smooth [data-scroll-container] {
+    min-height: 100vh;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-container] {
+    height: 100vh;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-section] {
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    height: 100%;
+}
+
+.c-scrollbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 11px;
+    height: 100%;
+    transform-origin: center right;
+    transition:
+        transform 0.3s,
+        opacity 0.3s;
+    opacity: 0;
+}
+.c-scrollbar:hover {
+    transform: scaleX(1.45);
+}
+.c-scrollbar:hover,
+.has-scroll-scrolling .c-scrollbar,
+.has-scroll-dragging .c-scrollbar {
+    opacity: 1;
+}
+[data-scroll-direction="horizontal"] .c-scrollbar {
+    width: 100%;
+    height: 10px;
+    top: auto;
+    bottom: 0;
+    transform: scaleY(1);
+}
+[data-scroll-direction="horizontal"] .c-scrollbar:hover {
+    transform: scaleY(1.3);
+}
+
+.c-scrollbar_thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.5;
+    width: 7px;
+    border-radius: 10px;
+    margin: 2px;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+.has-scroll-dragging .c-scrollbar_thumb {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+[data-scroll-direction="horizontal"] .c-scrollbar_thumb {
+    right: auto;
+    bottom: 0;
+}
