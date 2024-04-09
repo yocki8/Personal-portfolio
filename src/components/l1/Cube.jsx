@@ -134,7 +134,7 @@ export default function Cube() {
             className={` scroll relative h-dvh w-full ${animate ? "transition-all duration-1000" : ""}`}
             style={{
                 transformStyle: "preserve-3d",
-                transform: "rotateY(180deg) scaleX(-1) scaleY(-1)",
+                // transform: "rotateY(180deg) scaleX(-1) scaleY(-1)",
             }}
         >
             <Side
