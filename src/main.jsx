@@ -2,5 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import { DataProvider } from "./components/global/DataContext";
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <DataProvider>
+    <App />
+    </DataProvider>
+);
