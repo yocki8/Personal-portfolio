@@ -3,6 +3,7 @@ import { useData } from "./DataContext";
 import gsap from "gsap";
 import { Observer } from "gsap/all";
 import { useGSAP } from "@gsap/react";
+import { animate } from "framer-motion";
 
 const Button = ({ side }) => {
     const { handleActiveSide, activeSide } = useData();
@@ -10,7 +11,7 @@ const Button = ({ side }) => {
     if (side == 1) sideName = "Intro";
     if (side == 2) sideName = "About Me";
     if (side == 3) sideName = "Projects";
-    if (side == 4) sideName = "Contact";
+    if (side == 4) sideName = "Socials";
     if (side == 5) sideName = "Game";
     if (side == 6) sideName = "Empty";
     return (
@@ -32,7 +33,9 @@ const ToggleCubeAnimation = () => {
         <div className="ml-4 grid items-center gap-2">
             <h1 className="text-center text-xs tracking-[0.3em]">cube</h1>
 
-            <label className="relative inline-flex cursor-pointer items-center">
+            <label
+                className="relative inline-flex cursor-pointer items-center"
+            >
                 <input
                     type="checkbox"
                     value=""

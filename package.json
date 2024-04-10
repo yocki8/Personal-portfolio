@@ -15,11 +15,15 @@
     "@tsparticles/engine": "^3.3.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.3.0",
+    "clsx": "^2.1.0",
+    "framer-motion": "^11.0.25",
     "gsap": "^3.12.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-responsive-masonry": "^2.2.0",
     "split-type": "^0.3.4",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "tailwind-merge": "^2.2.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

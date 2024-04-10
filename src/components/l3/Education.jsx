@@ -30,7 +30,7 @@ const RainbowSvg = () => {
 };
 export default function Education() {
     return (
-        <section id="Education" className="relative text-muddy grid gap-10">
+        <section id="Education" className="bg-orangy relative text-muddy grid gap-10">
             <TextContent />
             <div className="relative  grid gap-10">
                 <Card />

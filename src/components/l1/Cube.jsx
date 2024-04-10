@@ -3,17 +3,18 @@ import { useState, useEffect, useRef } from "react";
 import Intro from "../l2/Intro";
 import About from "../l2/About";
 import Projects from "../l2/Projects";
-import Contact from "../l2/Contact";
+import Socials from "../l2/Socials";
 import Game from "../l2/Game";
 import Empty from "../l2/Empty";
 import { useData } from "../global/DataContext";
 
-const Side = ({ transform, cubeAnimating, children }) => {
-    const { animate } = useData();
+const Side = ({ transform, children }) => {
+    const { animate, cubeAnimating } = useData();
     return (
         <section
-            className={`absolute h-full w-full  opacity-[0.999]  ${animate ? "transition-all duration-1000" : ""}`}
+            className={`absolute h-full w-full opacity-[0.999]`}
             style={{
+                transition: animate ? "all 1s" : " ",
                 transform,
                 width: cubeAnimating ? window.innerHeight : "100%",
             }}
@@ -54,17 +55,12 @@ const sideData = {
 };
 
 export default function Cube() {
-    const { activeSide, animate } = useData();
-    const [isFirstRender, setIsFirstRender] = useState(true);
-    const [cubeAnimating, setCubeAnimating] = useState(false);
+    const { activeSide, animate, cubeAnimating, setCubeAnimating } = useData();
+
     const cube = useRef(null);
 
     useEffect(() => {
-        if (isFirstRender) {
-            setIsFirstRender(false);
-            return;
-        }
-
+        // return;
         const delay = (duration) =>
             new Promise((resolve) => {
                 setTimeout(resolve, duration);
@@ -75,18 +71,12 @@ export default function Cube() {
 
         if (animate) {
             Promise.resolve()
-                .then(() => timeline1(500))
-                .then(() => timeline2(1000))
-                .then(() => timeline3(500))
+                .then(() => timeline2(1500))
+                .then(() => timeline3(1000))
                 .then(() => timeline4(0));
 
-            const timeline1 = (duration) => {
-                cube.current.classList.add("*:opacity-85");
-                cube.current.classList.add("*:overflow-hidden");
-                return delay(duration);
-            };
-
             const timeline2 = (duration) => {
+                cube.current.classList.add("*:overflow-hidden");
                 setCubeAnimating(true);
                 cube.current.style.scale = "0.3";
                 cube.current.style.transform = `rotateX(${rX - 30}deg) rotateY(${rY - 30}deg)`;
@@ -102,7 +92,6 @@ export default function Cube() {
             };
 
             const timeline4 = (duration) => {
-                cube.current.classList.remove("*:opacity-85");
                 cube.current.classList.remove("*:overflow-hidden");
                 return delay(duration);
             };
@@ -113,7 +102,6 @@ export default function Cube() {
 
     const whatToTranslate = (num) => {
         if (cubeAnimating) return window.innerHeight / 2 + 2;
-
         if (activeSide == 1 || activeSide == 2) {
             if (num == 3 || num == 4) window.innerWidth / 2 + 2;
             else return window.innerHeight / 2 + 2;
@@ -131,48 +119,39 @@ export default function Cube() {
         <main
             id="cube"
             ref={cube}
-            className={` scroll relative h-dvh w-full ${animate ? "transition-all duration-1000" : ""}`}
+            className={`relative h-dvh w-full ${animate ? "transition-all duration-1000" : ""}`}
             style={{
                 transformStyle: "preserve-3d",
                 // transform: "rotateY(180deg) scaleX(-1) scaleY(-1)",
             }}
         >
-            <Side
-                cubeAnimating={cubeAnimating}
-                transform={` translateZ(${whatToTranslate(1)}px)`}
-            >
+            <Side transform={` translateZ(${whatToTranslate(1)}px)`}>
                 <Intro />
             </Side>
 
             <Side
-                cubeAnimating={cubeAnimating}
-                transform={` translateZ(-${whatToTranslate(2)}px)   scaleY(-1)`}
+                transform={` translateZ(-${whatToTranslate(2)}px)  scaleY(-1)`}
             >
                 <About />
             </Side>
 
             <Side
-                flag={activeSide == 5 || activeSide == 6}
-                cubeAnimating={cubeAnimating}
                 transform={` translateX(-${whatToTranslate(3)}px) rotateY(90deg) scaleX(-1)`}
             >
                 <Projects />
             </Side>
             <Side
-                cubeAnimating={cubeAnimating}
                 transform={` translateX(${whatToTranslate(4)}px) rotateY(90deg)`}
             >
-                <Contact />
+                <Socials />
             </Side>
 
             <Side
-                cubeAnimating={cubeAnimating}
                 transform={` translateY(${whatToTranslate(5)}px)  rotateX(90deg) scaleY(-1) ${activeSide == 3 || activeSide == 4 ? "rotate(90deg)" : ""}`}
             >
                 <Game />
             </Side>
             <Side
-                cubeAnimating={cubeAnimating}
                 transform={`translateY(-${whatToTranslate(6)}px) rotateX(90deg)  ${activeSide == 3 || activeSide == 4 ? "rotate(90deg)" : ""}`}
             >
                 <Empty />

@@ -4,20 +4,23 @@ import React, {
     useRef,
     useState,
     useContext,
-    useEffect,
 } from "react";
 
 const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
     const [activeSide, setActiveSide] = useState(1);
-    const [dimenstions, setDimensions] = useState({
-        height: window.innerHeight,
-        width: window.innerWidth,
-    });
+    const [cubeAnimating, setCubeAnimating] = useState(false);
     const [animate, setAnimate] = useState(false);
     const activeBtn = useRef(null);
+    const [position, setPosition] = useState({ x: 0, y: 0 });
 
+    const handleMouse = (e) => {
+        setPosition({
+            x: e.clientX,
+            y: e.clientY,
+        });
+    };
     const handleActiveSide = (side) => {
         const clickedSide = Number(side);
         const diff = clickedSide - activeSide;
@@ -28,19 +31,6 @@ export const DataProvider = ({ children }) => {
 
         setActiveSide(clickedSide);
     };
-
-
-    useLayoutEffect(() => {
-        function updateSize() {
-            setDimensions({
-                width: window.innerWidth,
-                height: window.innerHeight,
-            });
-        }
-        window.addEventListener("resize", updateSize);
-        updateSize();
-        return () => window.removeEventListener("resize", updateSize);
-    }, []);
 
     useLayoutEffect(() => {
         function changeSide(e) {
@@ -55,11 +45,6 @@ export const DataProvider = ({ children }) => {
         return () => window.removeEventListener("keydown", changeSide);
     }, []);
 
-    useEffect(() => {
-        // const siblingWidth = activeBtn.current.nextSibling.offsetWidth;
-        // activeBtn.current.style.width = `${siblingWidth}px`;
-    }, [dimenstions]);
-
     const handleAnimate = () => {
         setAnimate(!animate);
     };
@@ -68,11 +53,14 @@ export const DataProvider = ({ children }) => {
         <DataContext.Provider
             value={{
                 activeSide,
-                dimenstions,
                 animate,
                 activeBtn,
                 handleActiveSide,
                 handleAnimate,
+                cubeAnimating,
+                setCubeAnimating,
+                position,
+                handleMouse,
             }}
         >
             {children}

@@ -19,6 +19,7 @@ export default {
                 chinese: "#141414",
                 night: "#2E2E2E",
                 orangy: "#eb5939",
+                orangyo: "#eb5939af",
             },
         },
     },
