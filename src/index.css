@@ -5,19 +5,19 @@
 @font-face {
     font-family: avant;
     font-weight: 400;
-    src: url(../public/fonts/Avant.ttf);
+    src: url(fonts/Avant.ttf);
 }
 
 @font-face {
     font-family: avant;
     font-weight: 700;
-    src: url(../public/fonts/AvantBold.ttf);
+    src: url(fonts/AvantBold.ttf);
 }
 
 @font-face {
     font-family: Meatloaf;
     font-weight: 400;
-    src: url(../public/fonts/Meatloaf1.ttf);
+    src: url(fonts/Meatloaf1.ttf);
 }
 
 .scroll::-webkit-scrollbar {
@@ -74,8 +74,4 @@
     .d5 {
         @apply bg-pink-300 !important;
     }
-}
-#cube {
-    /* scale: 0.3;
-    transform: rotateX(-30deg) rotateY(-30deg); */
 }

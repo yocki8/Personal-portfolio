@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import snoopy from "../../../public/image/snoopy.jpg";
-import wtsp from "../../../public/svg/whatsapp.svg";
+import snoopy from "/image/snoopy.jpg";
+import wtsp from "/svg/whatsapp.svg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
@@ -39,7 +39,7 @@ const TextContent = () => {
             });
     });
     return (
-        <div className="grid mt-14">
+        <div className="mt-14 grid">
             <div
                 className={`ease relative whitespace-nowrap  transition-all duration-1000`}
             >
@@ -99,7 +99,7 @@ export default function Intro() {
         <div
             style={{
                 backgroundSize: "cover",
-                backgroundImage: "url(../../../public/image/bTexture.jpg)",
+                backgroundImage: "url(image/bTexture.jpg)",
             }}
             id="home"
             className={`relative m-auto flex h-full w-full items-center justify-evenly gap-40 bg-chinese text-4xl transition-all duration-1000`}

@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function () {
+export default function ({className= 'absolute fill-chinese'}) {
     return (
         <svg
-            className="fill-chinese absolute z-10"
+            className={className}
             data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1200 120"

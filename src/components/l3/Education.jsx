@@ -1,5 +1,5 @@
 import React from "react";
-import educationSvg from "../../../public/svg/education.svg";
+import educationSvg from "/svg/education.svg";
 const Card = () => {
     return (
         <div className="m-auto w-1/2 rounded-3xl bg-[#1B1B1B] text-center">
@@ -12,7 +12,7 @@ const Card = () => {
 const TextContent = () => {
     return (
         <div className="relative m-auto flex gap-2 text-xl">
-            <h1 className="bg-chinese h-10 rounded-lg text-4xl  font-bold ">
+            <h1 className="h-10 rounded-lg bg-chinese text-4xl  font-bold ">
                 Education
             </h1>
             <img className=" h-12 w-12" src={educationSvg}></img>
@@ -30,7 +30,10 @@ const RainbowSvg = () => {
 };
 export default function Education() {
     return (
-        <section id="Education" className="bg-orangy relative text-muddy grid gap-10">
+        <section
+            id="Education"
+            className="relative grid gap-10 bg-orangy text-muddy"
+        >
             <TextContent />
             <div className="relative  grid gap-10">
                 <Card />
