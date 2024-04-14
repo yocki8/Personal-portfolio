@@ -12,6 +12,7 @@ const Snoopy = () => {
             <span className=" absolute -bottom-10 -right-10 z-10 h-1/4 w-1/4 border-b border-r"></span>
             <img
                 src={snoopy}
+                draggable="false"
                 className="h-96 w-96 rounded-bl-[2em] rounded-tr-[2em]  brightness-75"
             ></img>
         </div>
@@ -26,8 +27,9 @@ const TextContent = () => {
         const text = new SplitType(intro.current, { types: "lines" });
 
         tl.from(text.lines, {
-            duration: 1,
+            duration: 0.5,
             opacity: 0,
+            delay: 0.7,
             stagger: 1,
         })
             .from(line.current, {
@@ -39,11 +41,9 @@ const TextContent = () => {
             });
     });
     return (
-        <div className="mt-14 grid">
-            <div
-                className={`ease relative whitespace-nowrap  transition-all duration-1000`}
-            >
-                <span className="absolute  -ml-6 -mt-6 h-1/2 w-1/2 rounded-xl  border-l border-t"></span>
+        <div className="mt-14 text-lighty whitespace-nowrap grid">
+            <div className="relative">
+                <span className="absolute -ml-6 -mt-6 h-1/2 w-1/2 rounded-xl border-l border-t"></span>
                 <div ref={intro} className="grid gap-6">
                     <h1 className="">Hy there,</h1>
                     <h1 className="rounded-2xl font-[Meatloaf] text-[3em] font-normal">
@@ -56,10 +56,10 @@ const TextContent = () => {
                         I'm a
                     </h1>
                 </div>
-                <div className="-mt-14 ml-36 h-40">
+                <div className="-mt-14 ml-40 h-40">
                     <div
                         ref={line}
-                        className=" ml-5 grid gap-2 overflow-hidden border-y"
+                        className="grid gap-2 overflow-hidden border-y"
                     >
                         {" "}
                         <h1 className=" mt-2">
@@ -95,17 +95,18 @@ const TextContent = () => {
     );
 };
 export default function Intro() {
+
     return (
-        <div
+        <section
             style={{
                 backgroundSize: "cover",
                 backgroundImage: "url(image/bTexture.jpg)",
             }}
-            id="home"
-            className={`relative m-auto flex h-full w-full items-center justify-evenly gap-40 bg-chinese text-4xl transition-all duration-1000`}
+            id="Intro"
+            className="flex h-dvh w-full items-center justify-between px-32 text-4xl"
         >
             <TextContent />
             <Snoopy />
-        </div>
+        </section>
     );
 }

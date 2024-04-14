@@ -5,29 +5,29 @@
 @font-face {
     font-family: avant;
     font-weight: 400;
-    src: url(fonts/Avant.ttf);
+    src: url(/fonts/Avant.ttf);
 }
 
 @font-face {
     font-family: avant;
     font-weight: 700;
-    src: url(fonts/AvantBold.ttf);
+    src: url(/fonts/AvantBold.ttf);
 }
 
 @font-face {
     font-family: Meatloaf;
     font-weight: 400;
-    src: url(fonts/Meatloaf1.ttf);
+    src: url(/fonts/Meatloaf1.ttf);
 }
 
-.scroll::-webkit-scrollbar {
+body::-webkit-scrollbar {
     width: 4px; /* width of the entire scrollbar */
 }
-.scroll::-webkit-scrollbar-track {
-    background: gray; /* color of the tracking area */
+body::-webkit-scrollbar-track {
+    background: #28282B; /* color of the tracking area */
 }
-.scroll::-webkit-scrollbar-thumb {
-    background-color: white;
+body::-webkit-scrollbar-thumb {
+    background-color: #b7ab98;
 }
 
 

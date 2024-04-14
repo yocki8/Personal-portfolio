@@ -3,9 +3,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import SplitType from "split-type";
-import DevSvg from "../l4/DevSvg";
-import SkillsList from "../l4/SkillsList";
-import CurveSvg from "../l4/CurveSvg";
+import DevSvg from "../l2/DevSvg";
+
 
 const WhoAmI = () => {
     const para = useRef(null);
@@ -18,20 +17,20 @@ const WhoAmI = () => {
             types: "chars,words",
         });
 
-        gsap.to(text.chars, {
+        gsap.from(text.chars, {
             opacity: 0.3,
             stagger: 0.1,
             scrollTrigger: {
                 trigger: para.current,
-                start: "top 20%",
-                end: "40% top",
+                start: "center 90%",
+                end: "center 60%",
                 scrub: true,
             },
         });
     });
 
     return (
-        <div className="relative flex justify-between px-28">
+        <div className="relative flex justify-between">
             <div className="w-[max(800px,70%)]">
                 <h1 className=" text-sm uppercase tracking-[0.3em]">
                     Who am I ?{" "}
@@ -51,21 +50,10 @@ const WhoAmI = () => {
     );
 };
 
-const Skills = () => {
-    return (
-        <div className="grid  gap-5 px-28">
-            <h1 className=" text-sm uppercase tracking-[0.3em]">skills</h1>
-            <div className="rounded-3xl">
-                <SkillsList />
-            </div>
-        </div>
-    );
-};
 export default function AboutMe() {
     return (
-        <section className="grid gap-20 text-muddy">
+        <section id="About Me" className="grid py-40 px-28 gap-20 text-muddy">
             <WhoAmI />
-            <Skills />
         </section>
     );
 }

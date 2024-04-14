@@ -1,14 +1,23 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import Navbar from "./components/global/Navbar";
-import Cube from "./components/l1/Cube";
-import { useData } from "./components/global/DataContext";
+import Intro from "./components/l1/Intro";
+import About from "./components/l1/AboutMe";
+import Projects from "./components/l1/Projects";
+import Socials from "./components/l1/Socials";
+import Skills from './components/l1/Skills';
 
 export default function App() {
-    const { position } = useData();
     return (
-        <div className="grid h-dvh w-dvw place-items-center bg-chinese font-[avant]  text-lighty  selection:bg-lighty selection:text-darky">
+        <>
             <Navbar />
-            <Cube />
-        </div>
+            <main className="w-full scroll-smooth bg-chinese font-[avant]  text-muddy  selection:bg-lighty selection:text-darky">
+                <Intro />
+                <About />
+                <Skills />
+                {/* <Projects /> */}
+                {/* <Socials /> */}
+                <div className="h-dvh"></div>
+            </main>
+        </>
     );
 }

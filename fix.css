@@ -1,6 +1,0 @@
-#body::-webkit-scrollbar {
-    width: 0px;
-}
-#body {
-    overflow-x: hidden;
-}

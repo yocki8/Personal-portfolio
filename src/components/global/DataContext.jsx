@@ -10,10 +10,8 @@ const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
     const [activeSide, setActiveSide] = useState(1);
-    const [cubeAnimating, setCubeAnimating] = useState(false);
-    const [animate, setAnimate] = useState(false);
-    const activeBtn = useRef(null);
     const [position, setPosition] = useState({ x: 0, y: 0 });
+    const activeBtn = useRef(null);
 
     const handleMouse = (e) => {
         setPosition({
@@ -45,20 +43,12 @@ export const DataProvider = ({ children }) => {
         return () => window.removeEventListener("keydown", changeSide);
     }, []);
 
-    const handleAnimate = () => {
-        setAnimate(!animate);
-    };
-
     return (
         <DataContext.Provider
             value={{
                 activeSide,
-                animate,
                 activeBtn,
                 handleActiveSide,
-                handleAnimate,
-                cubeAnimating,
-                setCubeAnimating,
                 position,
                 handleMouse,
             }}
