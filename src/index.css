@@ -20,6 +20,9 @@
     src: url(/fonts/Meatloaf1.ttf);
 }
 
+html{
+    scroll-behavior: smooth;
+}
 body::-webkit-scrollbar {
     width: 4px; /* width of the entire scrollbar */
 }

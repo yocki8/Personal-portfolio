@@ -1,37 +1,36 @@
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 
 export default function DevSvg() {
-
-
     const donut = useRef();
     const donutDiv = useRef();
 
-    useGSAP(()=>{
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.from(donutDiv.current,{
+    useGSAP(() => {
+        gsap.from(donutDiv.current, {
             width: 0,
             height: 0,
             stagger: 0.1,
-            scrollTrigger:{
+            scrollTrigger: {
                 trigger: donut.current,
                 start: "top 80%",
                 end: "bottom 75%",
-                scrub: true,
-            }
-        })
-    })
+                scrub: 2,
+            },
+        });
+    });
     return (
         <div ref={donut} className="relative h-80 w-80">
             <DSvg className={"h-full w-full  fill-muddy opacity-30"} />
             <div
                 ref={donutDiv}
-                className="absolute rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[110%] w-[110%] overflow-hidden"
+                className="absolute left-1/2 top-1/2 h-[110%] w-[110%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full"
             >
-                <DSvg className={"h-80 relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-80 fill-muddy"} />
+                <DSvg
+                    className={
+                        "relative left-1/2 top-1/2 h-80 w-80 -translate-x-1/2  -translate-y-1/2 fill-muddy"
+                    }
+                />
             </div>
         </div>
     );

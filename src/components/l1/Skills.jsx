@@ -7,8 +7,6 @@ const SkillName = ({ num }) => {
     const skillRef = useRef(null);
 
     useGSAP(() => {
-        gsap.registerPlugin(ScrollTrigger);
-
         gsap.from(skillRef.current, {
             opacity: 0,
             duration: 1,
@@ -76,7 +74,7 @@ const Tier = ({ num, clr }) => {
 
 export default function Skills() {
     return (
-        <section id="Skills" className="grid  gap-5 px-28">
+        <section id="2" className="grid gap-5 px-28 pt-20">
             <h1 className=" text-sm uppercase tracking-[0.3em]">skills</h1>
             <ul className="relative grid gap-4 font-bold text-chinese ">
                 <Tier num={"s"} clr={"d1"} />

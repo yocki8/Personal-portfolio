@@ -1,6 +1,8 @@
+import ScrollTrigger from "gsap/ScrollTrigger";
+import Observer from "gsap/Observer";
+import gsap from "gsap/gsap-core";
 import React, {
     createContext,
-    useLayoutEffect,
     useRef,
     useState,
     useContext,
@@ -9,39 +11,24 @@ import React, {
 const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
-    const [activeSide, setActiveSide] = useState(1);
-    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [activeSide, setActiveSide] = useState(0);
     const activeBtn = useRef(null);
 
-    const handleMouse = (e) => {
-        setPosition({
-            x: e.clientX,
-            y: e.clientY,
-        });
-    };
-    const handleActiveSide = (side) => {
-        const clickedSide = Number(side);
-        const diff = clickedSide - activeSide;
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    const handleActiveSide = (clickedSide) => {
+        const active = Number(activeBtn.current.dataset.active);
+        const diff = clickedSide - active;
         const pos = Number(activeBtn.current.dataset.pos);
         const calc = pos + 96 * diff + 12 * diff;
         activeBtn.current.style.transform = `translateX(${calc}px)`;
         activeBtn.current.dataset.pos = calc;
-
+        activeBtn.current.dataset.active = clickedSide;
+        
         setActiveSide(clickedSide);
-    };
 
-    useLayoutEffect(() => {
-        function changeSide(e) {
-            const key = e.key;
-
-            if (!isNaN(key)) {
-                if (key >= 1 && key <= 6) handleActiveSide(key);
-            }
-        }
-
-        window.addEventListener("keydown", changeSide);
-        return () => window.removeEventListener("keydown", changeSide);
-    }, []);
+    }; 
 
     return (
         <DataContext.Provider
@@ -49,8 +36,6 @@ export const DataProvider = ({ children }) => {
                 activeSide,
                 activeBtn,
                 handleActiveSide,
-                position,
-                handleMouse,
             }}
         >
             {children}

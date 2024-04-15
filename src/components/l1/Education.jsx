@@ -31,7 +31,7 @@ const RainbowSvg = () => {
 export default function Education() {
     return (
         <section
-            id="Education"
+            id="4"
             className="relative grid gap-10 bg-orangy text-muddy"
         >
             <TextContent />

@@ -102,8 +102,8 @@ export default function Intro() {
                 backgroundSize: "cover",
                 backgroundImage: "url(image/bTexture.jpg)",
             }}
-            id="Intro"
-            className="flex h-dvh w-full items-center justify-between px-32 text-4xl"
+            id="0"
+            className="flex min-h-dvh w-full items-center justify-between px-32 text-4xl"
         >
             <TextContent />
             <Snoopy />
