@@ -25,8 +25,7 @@ const skillsList = [
 
     {
         name: "Java",
-        url: "https://upload.wikimedia.org/wikipedia/commons/4/47/Java_Black_icon.svg",
-        invert: true,
+        url: "https://www.vectorlogo.zone/logos/java/java-icon.svg",
         tier: "a",
     },
 
@@ -41,7 +40,7 @@ const skillsList = [
         tier: "a",
     },
     {
-        name: "Sass ",
+        name: "Sass",
         url: "https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg",
         tier: "c",
     },
@@ -54,6 +53,12 @@ const skillsList = [
         name: "MongoDB",
         url: "https://upload.wikimedia.org/wikipedia/commons/0/00/Mongodb-svgrepo-com.svg",
         tier: "a",
+    },
+
+    {
+        name: "React Router",
+        url: "https://www.svgrepo.com/show/354262/react-router.svg",
+        tier: "b",
     },
     {
         name: "Postman",

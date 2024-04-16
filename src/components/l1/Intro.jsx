@@ -41,7 +41,7 @@ const TextContent = () => {
             });
     });
     return (
-        <div className="mt-14 text-lighty whitespace-nowrap grid">
+        <div className="mt-14 grid whitespace-nowrap text-lighty">
             <div className="relative">
                 <span className="absolute -ml-6 -mt-6 h-1/2 w-1/2 rounded-xl border-l border-t"></span>
                 <div ref={intro} className="grid gap-6">
@@ -79,16 +79,18 @@ const TextContent = () => {
             <div className="mx-auto mt-10 flex items-end gap-6 text-2xl text-muddy ">
                 <label>Let's </label>
                 <a href="https://wa.link/kpwvek" target="_blank">
-                    <div className="group relative overflow-hidden rounded-xl">
-                        <button className="relative z-10 flex items-center gap-2 overflow-hidden rounded-xl border px-4 py-2 text-white transition-all duration-300  group-hover:text-black">
+                    <button className="z-100 group relative cursor-pointer overflow-hidden rounded-full border border-muddy px-8 py-2 font-semibold">
+                        <div className="relative group-hover:invert flex gap-2 z-10 text-xl text-white duration-500 group-hover:text-white">
+                           
                             <img
                                 src={wtsp}
-                                className="h-6 w-6 invert transition-all  duration-300 group-hover:invert-0"
+                                className="h-6 w-6 invert transition-all  duration-300"
                             ></img>
-                            <h1 className="">Connect !</h1>
-                        </button>
-                        <span className="absolute left-1/2 h-20 w-20 -translate-x-1/2 rounded-full bg-muddy transition-all duration-300 group-hover:scale-[3.5]"></span>
-                    </div>
+                            <h1>Connect</h1>
+                        </div>
+                        <span className="absolute -left-36 top-0 h-full w-full -rotate-45 bg-muddy duration-500 group-hover:left-0 group-hover:rotate-0"></span>
+                        <span className="absolute -right-36 top-0 h-full w-full -rotate-45 bg-muddy duration-500 group-hover:right-0 group-hover:rotate-0"></span>
+                    </button>
                 </a>
             </div>
         </div>
@@ -100,6 +102,7 @@ export default function Intro() {
         <section
             style={{
                 backgroundSize: "cover",
+                
                 backgroundImage: "url(image/bTexture.jpg)",
             }}
             id="0"

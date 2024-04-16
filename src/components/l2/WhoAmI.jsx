@@ -7,7 +7,7 @@ import { useRef } from "react";
 
 export default function WhoAmI() {
     const para = useRef(null);
-
+    const desc = useRef(null);
     useGSAP(() => {
         const tl = gsap.timeline();
 
@@ -25,14 +25,26 @@ export default function WhoAmI() {
                 scrub: true,
             },
         });
+
+        gsap.from(desc.current, {
+            rotate: '12deg',
+            translateY: '100%',
+            duration: 1,
+            scrollTrigger: {
+                trigger: desc.current,
+                start: "bottom 90%",
+            },
+        });
     });
 
     return (
         <div className="relative flex items-center justify-between">
             <div className="w-[max(800px,70%)]">
-                <h1 className=" text-sm uppercase tracking-[0.3em]">
-                    Who am I ?{" "}
-                </h1>
+                <div className="overflow-hidden">
+                    <h1 ref={desc} className="text-sm w-fit  origin-left rotate- uppercase tracking-[0.3em]">
+                        Who am I ?{" "}
+                    </h1>
+                </div>
                 <div ref={para} className="relative py-2 text-[3em]">
                     <p className=" ">
                         I am a <span className="text-orangy">passionate</span>{" "}
@@ -41,7 +53,7 @@ export default function WhoAmI() {
                     </p>
                 </div>
             </div>
-            <div className="h-64 mr-14 w-64">
+            <div className="mr-14 h-64 w-64">
                 <DevSvg />
             </div>
         </div>

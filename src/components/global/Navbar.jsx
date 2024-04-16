@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useLayoutEffect, useState } from "react";
+import React, { useEffect, useRef,useLayoutEffect, useState } from "react";
 import { useData } from "./DataContext";
 import gsap from "gsap";
 import { Observer } from "gsap/all";
@@ -20,7 +20,7 @@ const Button = ({ side }) => {
                 onClick={() => handleActiveSide(side)}
                 className={`group z-10 grid h-12  w-24 items-center rounded-xl  text-sm font-bold tracking-wide  ${activeSide == side ? "text-[#28282B]" : "text-muddy"} transition-all duration-200 hover:bg-[#b7ab981f] `}
             >
-                <div className="z-10 h-5 overflow-hidden *:transition-all *:duration-[0.4s] group-hover:*:-translate-y-full">
+                <div className="h-5 z-10 overflow-hidden *:transition-all *:duration-[0.4s] group-hover:*:-translate-y-full">
                     <h1>{sideName}</h1>
                     <h1>{sideName}</h1>
                 </div>
@@ -41,8 +41,25 @@ const SlideBtn = () => {
     );
 };
 export default function Navbar({}) {
+    const nav = useRef();
+    const {handleActiveSide} = useData();
+
+    useGSAP(() => {
+        Observer.create({
+            target: window,
+            type: "wheel",
+            onUp: () => nav.current.classList.remove("-translate-y-[110%]"),
+            onDown: () => nav.current.classList.add("-translate-y-[110%]"),
+        });
+    });
+
+
+
     return (
-        <nav className="fixed left-1/2 top-4 z-10 max-w-[90%] -translate-x-1/2 transition-all duration-500">
+        <nav
+            ref={nav}
+            className="fixed left-1/2 top-4 z-10 max-w-[90%] -translate-x-1/2 transition-all duration-500"
+        >
             <div className="flex items-center gap-3 rounded-3xl border-b-8 border-b-[#28282B] bg-[#343434] px-6  py-2 ">
                 <SlideBtn />
                 <Button side={0} />

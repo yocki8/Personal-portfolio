@@ -30,14 +30,33 @@ const TextBlock = ({ summary, para }) => {
 };
 
 export default function HowIHelp() {
+    const desc = useRef();
+
+    useGSAP(() => {
+        gsap.from(desc.current, {
+            rotate: "12deg",
+            translateY: "100%",
+            duration: 1,
+            scrollTrigger: {
+                trigger: desc.current,
+                start: "bottom 90%",
+            },
+        });
+    });
+
     return (
         <div className="grid gap-10">
-            <h1 className=" text-sm  uppercase tracking-[0.3em]">
-                How Can I Help you ?
-            </h1>
+            <div className="overflow-hidden">
+                <h1
+                    ref={desc}
+                    className="rotate- w-fit  origin-left text-sm uppercase tracking-[0.3em]"
+                >
+                    how can i help you ?{" "}
+                </h1>
+            </div>
             <ol
                 style={{ boxShadow: "-10px 10px 10px 10px black" }}
-                className="grid  gap-2 overflow-hidden rounded-2xl"
+                className="grid gap-2 overflow-hidden rounded-2xl"
             >
                 <TextBlock
                     summary={"Want cool Websites ?"}

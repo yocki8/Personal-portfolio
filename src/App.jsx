@@ -19,8 +19,8 @@ export default function App() {
             target: window,
             type: "wheel",
             onWheel: (e)=>{
-                const element = e.event.target.closest("section").getAttribute('id');
-                handleActiveSide(element);
+                const element = e.event.target?.closest("section")?.getAttribute('id');
+                if(element) handleActiveSide(element);
             },
         });
     });
@@ -36,8 +36,9 @@ export default function App() {
                 <About />
                 <Skills />
                 <Projects />
-                <Education />
-                <Socials />
+                {/* <Education />
+                <Socials /> */}
+                <section id="4" className="h-dvh" ></section>
             </main>
         </>
     );
