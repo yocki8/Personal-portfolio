@@ -39,7 +39,7 @@ export default function Achievements() {
                     <AfterText text={"120+ Typing Speed"} />
                 </ul>
             </div>
-            <img src={achieve} className="h-96 pointer-events-none opacity-20 rotate-12 absolute top-40 -left-32 "></img>
+            <img src={achieve} className="md:h-96 h-32 pointer-events-none opacity-20 rotate-12 absolute md:top-40 -left-10 md:-left-32 "></img>
         </div>
     );
 }

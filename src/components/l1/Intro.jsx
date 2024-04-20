@@ -4,6 +4,7 @@ import wtsp from "/svg/whatsapp.svg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
+import { useData } from "../global/DataContext";
 
 const Snoopy = () => {
     return (
@@ -41,22 +42,22 @@ const TextContent = () => {
             });
     });
     return (
-        <div className="mt-14 grid whitespace-nowrap text-lighty">
-            <div className="relative">
-                <span className="absolute -ml-6 -mt-6 h-1/2 w-1/2 rounded-xl border-l border-t"></span>
-                <div ref={intro} className="grid gap-6">
+        <div className="whitespace-nowrap mt-14 md:mx-0 mx-auto grid text-lighty">
+            <div className="relative ">
+                <span className="absolute  -ml-6 -mt-6 h-1/2 w-1/2 rounded-xl border-l border-t"></span>
+                <div ref={intro} className="grid md:gap-6">
                     <h1 className="">Hy there,</h1>
-                    <h1 className="rounded-2xl font-[Meatloaf] text-[3em] font-normal">
+                    <h1 className="rounded-2xl  font-[Meatloaf] text-[3em] font-normal">
                         I'm Yuvraj Malhotra
                     </h1>
                     <h1 className="">
-                        <span className="mr-2 rounded-full border-b-8 border-l-8 border-matte  bg-lighty px-2  text-darky">
+                        <span className="mr-2  rounded-full border-b-8 border-l-8 border-matte  bg-lighty px-2  text-darky">
                             &
                         </span>
                         I'm a
                     </h1>
                 </div>
-                <div className="-mt-14 ml-40 h-40">
+                <div className="md:-mt-14 -mt-10 ml-24 md:ml-40 h-28 md:h-40">
                     <div
                         ref={line}
                         className="grid gap-2 overflow-hidden border-y"
@@ -80,8 +81,7 @@ const TextContent = () => {
                 <label>Let's </label>
                 <a href="https://wa.link/kpwvek" target="_blank">
                     <button className="z-100 group relative cursor-pointer overflow-hidden rounded-full border border-muddy px-8 py-2 font-semibold">
-                        <div className="relative group-hover:invert flex gap-2 z-10 text-xl text-white duration-500 group-hover:text-white">
-                           
+                        <div className="relative z-10 flex gap-2 text-xl text-white duration-500 group-hover:text-white group-hover:invert">
                             <img
                                 src={wtsp}
                                 className="h-6 w-6 invert transition-all  duration-300"
@@ -97,19 +97,19 @@ const TextContent = () => {
     );
 };
 export default function Intro() {
-
+    const { screen } = useData();
     return (
         <section
             style={{
                 backgroundSize: "cover",
-                
+
                 backgroundImage: "url(image/bTexture.jpg)",
             }}
             id="0"
-            className="flex min-h-dvh w-full items-center justify-between px-32 text-4xl"
+            className="flex h-lvh md:h-dvh w-full items-center justify-between px-[7.5vw] md:text-4xl "
         >
             <TextContent />
-            <Snoopy />
+            {screen && <Snoopy />}
         </section>
     );
 }

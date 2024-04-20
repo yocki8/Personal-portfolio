@@ -5,7 +5,9 @@ import App from "./App";
 import { DataProvider } from "./components/global/DataContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <DataProvider>
-    <App />
-    </DataProvider>
+    <React.StrictMode>
+        <DataProvider>
+            <App />
+        </DataProvider>
+    </React.StrictMode>
 );

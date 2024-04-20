@@ -21,10 +21,10 @@ const TextBlock = ({ summary, para }) => {
             ref={block}
             className="relative grid gap-2  bg-muddy p-4 text-chinese"
         >
-            <h1 className="w-fit rounded-full bg-orangy px-4 py-1 font-bold">
+            <h1 className="md:w-fit flex  rounded-full bg-orangy px-4 pb-1 pt-2 md:py-1 font-bold">
                 {summary}
             </h1>
-            <p className="ml-2  text-lg">{para}</p>
+            <p className="ml-2  md:text-lg">{para}</p>
         </li>
     );
 };
@@ -45,19 +45,16 @@ export default function HowIHelp() {
     });
 
     return (
-        <div className="grid gap-10">
+        <div className="grid gap-5 md:gap-10">
             <div className="overflow-hidden">
                 <h1
                     ref={desc}
-                    className="rotate- w-fit  origin-left text-sm uppercase tracking-[0.3em]"
+                    className=" origin-left text-center  text-xs uppercase tracking-[0.3em] md:text-left md:text-sm"
                 >
                     how can i help you ?{" "}
                 </h1>
             </div>
-            <ol
-                style={{ boxShadow: "-10px 10px 10px 10px black" }}
-                className="grid gap-2 overflow-hidden rounded-2xl"
-            >
+            <ol className="grid gap-2 overflow-hidden rounded-2xl shadow-[-10px_10px_10px_10px_black]">
                 <TextBlock
                     summary={"Want cool Websites ?"}
                     para={

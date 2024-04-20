@@ -5,6 +5,7 @@ import React, {
     createContext,
     useRef,
     useState,
+    useEffect,
     useContext,
 } from "react";
 
@@ -13,11 +14,21 @@ const DataContext = createContext();
 export const DataProvider = ({ children }) => {
     const [activeSide, setActiveSide] = useState(0);
     const activeBtn = useRef(null);
+    const [screen, setScreen] = useState(
+        window.matchMedia("(min-width: 768px)").matches,
+    );
 
     gsap.registerPlugin(ScrollTrigger);
 
+    useEffect(() => {
+        window
+            .matchMedia("(min-width: 768px)")
+            .addEventListener("change", (e) => setScreen(e.matches));
+    }, []);
 
     const handleActiveSide = (clickedSide) => {
+
+        if(!screen) return;
         const active = Number(activeBtn.current.dataset.active);
         const diff = clickedSide - active;
         const pos = Number(activeBtn.current.dataset.pos);
@@ -25,12 +36,9 @@ export const DataProvider = ({ children }) => {
         activeBtn.current.style.transform = `translateX(${calc}px)`;
         activeBtn.current.dataset.pos = calc;
         activeBtn.current.dataset.active = clickedSide;
-        
+
         setActiveSide(clickedSide);
-
-    }; 
-
-    
+    };
 
     return (
         <DataContext.Provider
@@ -38,6 +46,7 @@ export const DataProvider = ({ children }) => {
                 activeSide,
                 activeBtn,
                 handleActiveSide,
+                screen,
             }}
         >
             {children}

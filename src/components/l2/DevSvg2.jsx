@@ -14,8 +14,8 @@ export default function DevSvg2() {
             stagger: 0.1,
             scrollTrigger: {
                 trigger: donut.current,
-                start: "top 75%",
-                end: "bottom 50%",
+                start: "center 90%",
+                end: "center 65%",
                 scrub: 2,
             },
         });
@@ -25,14 +25,14 @@ export default function DevSvg2() {
             stagger: 0.1,
             scrollTrigger: {
                 trigger: donut.current,
-                start: "top 60%",
-                end: "bottom 35%",
+                start: "center 85%",
+                end: "center 55%",
                 scrub: 2,
             },
         });
     });
     return (
-        <div ref={donut} className="relative h-80 w-80">
+        <div ref={donut} className="relative  md:h-80 h-40 w-40 md:w-80">
             <DSvg className={"h-full w-full  fill-muddy opacity-20"} />
             <div
                 ref={donutDiv}
@@ -40,7 +40,7 @@ export default function DevSvg2() {
             >
                 <DSvg
                     className={
-                        "relative left-1/2 top-0 h-80 w-80 -translate-x-1/2  -translatey-1/2 fill-muddy opacity-40"
+                        "relative left-1/2 top-0 md:h-80 h-40 w-40 md:w-80 -translate-x-1/2  -translatey-1/2 fill-muddy opacity-45"
                     }
                 />
             </div>
@@ -50,7 +50,7 @@ export default function DevSvg2() {
             >
                 <DSvg
                     className={
-                        "relative left-1/2 top-0 h-80 w-80 -translate-x-1/2 -translatey-1/2 fill-muddy"
+                        "relative left-1/2 top-0 md:h-80 h-40 w-40 md:w-80 -translate-x-1/2 -translatey-1/2 fill-muddy"
                     }
                 />
             </div>

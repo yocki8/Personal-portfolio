@@ -13,22 +13,22 @@ export default function DevSvg() {
             stagger: 0.1,
             scrollTrigger: {
                 trigger: donut.current,
-                start: "top 80%",
-                end: "bottom 75%",
+                start: "center 90%",
+                end: "center 55%",
                 scrub: 2,
             },
         });
     });
     return (
-        <div ref={donut} className="relative h-80 w-80">
-            <DSvg className={"h-full w-full  fill-muddy opacity-30"} />
+        <div ref={donut} className="relative md:h-80 h-40 w-40  md:w-80">
+            <DSvg className={"h-full w-full  fill-muddy opacity-20"} />
             <div
                 ref={donutDiv}
                 className="absolute left-1/2 top-1/2 h-[110%] w-[110%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full"
             >
                 <DSvg
                     className={
-                        "relative left-1/2 top-1/2 h-80 w-80 -translate-x-1/2  -translate-y-1/2 fill-muddy"
+                        "relative left-1/2 top-1/2 md:h-80 h-40 w-40  md:w-80 -translate-x-1/2  -translate-y-1/2 fill-muddy"
                     }
                 />
             </div>

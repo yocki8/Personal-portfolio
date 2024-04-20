@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import gsap from "gsap/gsap-core";
 import { useGSAP } from "@gsap/react";
 import { skillsList } from "../global/SkillsList";
+
 const SkillName = ({ num }) => {
     const skillRef = useRef(null);
 
@@ -12,19 +13,23 @@ const SkillName = ({ num }) => {
             duration: 1,
             scrollTrigger: {
                 trigger: skillRef.current,
-                start: "top 80%",
+                start: "top 90%",
             },
         });
     });
     return (
-        <ul ref={skillRef} className="flex flex-wrap gap-3 items-center">
+        <ul
+            ref={skillRef}
+            className="flex w-full  flex-wrap items-center md:gap-3"
+        >
             {skillsList.map((skill) => {
                 if (skill.tier == num)
                     return (
                         <li key={skill.name} className="group relative p-2">
                             <img
-                                className={`h-[3.6vw] w-[3.6vw] ${skill.invert ? "invert" : ""}`}
+                                className={`h-6 w-6  md:h-14 md:w-14 ${skill.invert ? "invert" : ""}`}
                                 src={skill.url}
+                                alt={skill.name}
                             ></img>
                             <div className="absolute -top-5 left-1/2 w-20 -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-muddy opacity-0 transition-all duration-300 group-hover:opacity-100">
                                 <h1 className="px-1 py-2 text-center text-xs">
@@ -63,8 +68,10 @@ const SkillName = ({ num }) => {
 
 const Tier = ({ num, clr }) => {
     return (
-        <li className="flex h-32 justify-start gap-4 border-b border-b-muddyo text-3xl">
-            <div className={`grid md:w-40 w-28 place-items-center uppercase ${clr}`}>
+        <li className="flex h-20 justify-start gap-4 border-b border-b-muddyo text-3xl md:h-32">
+            <div
+                className={`grid w-28 place-items-center uppercase md:w-40 ${clr}`}
+            >
                 <h1>{num}</h1>
             </div>
             <SkillName num={num} />
@@ -73,7 +80,6 @@ const Tier = ({ num, clr }) => {
 };
 
 export default function Skills() {
-
     const desc = useRef();
 
     useGSAP(() => {
@@ -89,11 +95,11 @@ export default function Skills() {
     });
 
     return (
-        <section id="2" className="grid gap-5 px-28 pb-20 pt-20">
+        <section id="2" className="grid gap-5  px-[7.5vw] pb-20 md:pt-20 ">
             <div className="overflow-hidden">
                 <h1
                     ref={desc}
-                    className="rotate- w-fit  origin-left text-sm uppercase tracking-[0.3em]"
+                    className="  origin-left text-center  text-xs uppercase tracking-[0.3em] md:text-left md:text-sm"
                 >
                     Skills{" "}
                 </h1>

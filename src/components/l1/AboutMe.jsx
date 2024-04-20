@@ -5,9 +5,11 @@ import HowIHelp from "../l2/HowIHelp";
 import WhatIDo from "../l2/WhatIDo";
 
 export default function AboutMe() {
-    
     return (
-        <section id="1" className="grid gap-56 px-28  pt-40 pb-20 text-muddy">
+        <section
+            id="1"
+            className="md: grid gap-20 md:gap-56 px-[7.5vw] pb-20 pt-40 text-muddy"
+        >
             <WhoAmI />
             <WhatIDo />
             <HowIHelp />
