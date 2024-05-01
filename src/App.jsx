@@ -8,6 +8,11 @@ import Skills from "./components/l1/Skills";
 import { useGSAP } from "@gsap/react";
 import { useData } from "./components/global/DataContext";
 import Observer from "gsap/Observer";
+import ReactGA from 'react-ga';
+
+
+ReactGA.initialize("G-1CZG95DRBB");
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 export default function App() {
     const app = useRef();
