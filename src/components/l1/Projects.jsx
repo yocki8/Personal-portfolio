@@ -3,6 +3,7 @@ import project1 from "/image/project1.png";
 import project2 from "/image/project2.png";
 import project3 from "/image/project3.png";
 import project4 from "/image/project4.png";
+import blogify from "/image/blogify.jpg";
 import { skillsList } from "../global/SkillsList";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap/gsap-core";
@@ -134,6 +135,22 @@ export default function Projects() {
                     </h1>
                 </div>
                 <ul className="grid gap-16 md:gap-24">
+                    <Project
+                        imgSrc={blogify}
+                        name={"Blogify"}
+                        design={true}
+                        imgTransition={true}
+                        stackName={"Backend"}
+                        year={2024}
+                        aLink={"https://github.com/yocki8/Blogify/"}
+                        stack={[
+                            "EJS",
+                            "ExpressJS",
+                            "MongoDB",
+                            "Tailwind",
+                            "Postman",
+                        ]}
+                    />
                     <Project
                         imgSrc={project1}
                         name={"Sunrise Hotels"}
